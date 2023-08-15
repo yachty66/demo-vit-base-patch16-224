@@ -18,15 +18,11 @@ You can fork this repository and deploy it on Banana as is, or customize it base
 ## Running after deploying
 
 1. Wait for the model to build after creating it.
-2. Make an API request using one of the provided snippets in your Banana dashboard. However, instead of sending a prompt as provided in the snippet, send your image as a base64 string as follows:
+2. Make an API request using one of the provided snippets in your Banana dashboard. However, instead of sending a prompt as provided in the snippet, send your image url as follows:
 
 ```python
-image_path = "your_image.jpeg"
-with open(image_path, "rb") as img_file:
-    b64_string = base64.b64encode(img_file.read()).decode('utf-8')
-
 inputs = {
-    "image": b64_string,
+    "image": "your_image_url",
 }
 ```
 
