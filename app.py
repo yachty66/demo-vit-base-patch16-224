@@ -27,7 +27,7 @@ def handler(context: dict, request: Request) -> Response:
     image_link = request.json.get("image")
     response = requests.get(image_link)
     image_bytes = response.content
-    image = Image.open(io.BytesIO(image_bytes))
+    image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
     inputs = processor(images=image, return_tensors="pt")
     outputs = model(**inputs)
     logits = outputs.logits
